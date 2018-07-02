@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(JUnitQuickcheck.class)
 public class RomanNumeralsPBT {
 
-    private RomanNumerals romanNumerals = new RomanNumeralsWithMap();
+    private RomanNumerals romanNumerals = new RomanNumeralsRecursive();
 
     @Property
     public void should_only_contains_IVXLDCM(@InRange(minInt = 1, maxInt = 1000000) int numericValue) {
