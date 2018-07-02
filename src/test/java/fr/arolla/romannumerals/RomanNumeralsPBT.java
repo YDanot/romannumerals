@@ -1,6 +1,5 @@
 package fr.arolla.romannumerals;
 
-
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.generator.InRange;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
@@ -13,11 +12,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(JUnitQuickcheck.class)
 public class RomanNumeralsPBT {
 
-    private RomanNumerals romanNumerals = new RomanNumeralsRecursive();
+    private RomanNumerals romanNumerals = new IterativeRomanNumerals();
 
     @Property
     public void should_only_contains_IVXLDCM(@InRange(minInt = 1, maxInt = 1000000) int numericValue) {
         assertThat(romanNumerals.toRoman(numericValue)).matches("[IVXLDCM]+");
+    }
+
+    @Property
+    public void should_never_contains_more_than_3_times_a_letter_except_M(@InRange(minInt = 1, maxInt = 1000000) int numericValue) {
+        String roman = romanNumerals.toRoman(numericValue);
+        assertThat(roman).doesNotMatch("I{4,}?");
+        assertThat(roman).doesNotMatch("V{4,}?");
+        assertThat(roman).doesNotMatch("X{4,}?");
+        assertThat(roman).doesNotMatch("L{4,}?");
+        assertThat(roman).doesNotMatch("D{4,}?");
+        assertThat(roman).doesNotMatch("C{4,}?");
     }
 
     @Property

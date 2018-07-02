@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(JUnitParamsRunner.class)
 public class RomanNumeralsShould {
 
-    private RomanNumerals romanNumerals = new RomanNumeralsRecursive();
+    private RomanNumerals romanNumerals = new IterativeRomanNumerals();
 
     @Test
     @Parameters
