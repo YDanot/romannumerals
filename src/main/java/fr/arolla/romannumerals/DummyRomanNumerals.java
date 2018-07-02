@@ -1,6 +1,6 @@
 package fr.arolla.romannumerals;
 
-public class RomanNumeralsNaive implements RomanNumerals {
+public class DummyRomanNumerals implements RomanNumerals {
 
     @Override
     public String toRoman(int numericValue) {
