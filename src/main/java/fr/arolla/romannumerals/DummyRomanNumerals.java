@@ -1,10 +1,10 @@
 package fr.arolla.romannumerals;
 
-public class DummyRomanNumerals implements RomanNumerals {
+class DummyRomanNumerals implements RomanNumerals {
 
     @Override
     public String toRoman(int numericValue) {
-        return repeat("I", numericValue)
+        return Strings.repeat("I", numericValue)
                 .replaceAll("I{1000}", "M")
                 .replaceAll("I{900}", "CM")
                 .replaceAll("I{500}", "D")
@@ -17,14 +17,5 @@ public class DummyRomanNumerals implements RomanNumerals {
                 .replaceAll("I{9}", "IX")
                 .replaceAll("I{5}", "V")
                 .replaceAll("I{4}", "IV");
-    }
-
-    private static String repeat(String letter, int numericValue) {
-        String result = "";
-        for (int i = 0; i < numericValue; i++) {
-            result += letter;
-        }
-
-        return result;
     }
 }

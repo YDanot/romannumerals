@@ -16,32 +16,32 @@ enum RomanStep {
     IV(4)   ,
     I(1)    {
         @Override
-        RomanStep next() {
+        RomanStep nextDescending() {
             return I;
         }
     };
 
-    int numeric;
+    int number;
 
-    RomanStep(int numeric) {
-        this.numeric = numeric;
+    RomanStep(int number) {
+        this.number = number;
     }
 
-    RomanStep next(){
+    RomanStep nextDescending(){
         return values()[this.ordinal()+1];
     }
 
-    public static RomanStep penultimate() {
+    public static RomanStep secondSmallest() {
         RomanStep[] values = values();
-        return values[values.length-1];
+        return values[values.length-2];
     }
 
-    public static RomanStep last() {
+    public static RomanStep smallest() {
         RomanStep[] values = values();
-        return values[values().length];
+        return values[values().length-1];
     }
 
-    public String letter() {
+    public String symbol() {
         return name();
     }
 }

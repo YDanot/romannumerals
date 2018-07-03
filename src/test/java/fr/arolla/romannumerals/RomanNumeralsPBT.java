@@ -13,10 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(JUnitQuickcheck.class)
 public class RomanNumeralsPBT {
 
-    private RomanNumerals romanNumerals = new IterativeRomanNumerals();
+    private RomanNumerals romanNumerals = new DummyRomanNumerals();
 
     @Property
-    public void should_only_contains_IVXLDCM(@InRange(minInt = 1, maxInt = 10000) int numericValue) {
+    public void should_only_contains_IVXLDCM(@InRange(minInt = 1, maxInt = 1000000) int numericValue) {
         assertThat(romanNumerals.toRoman(numericValue)).matches("[IVXLDCM]+");
     }
 
