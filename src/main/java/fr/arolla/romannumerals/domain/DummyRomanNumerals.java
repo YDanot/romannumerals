@@ -1,10 +1,11 @@
-package fr.arolla.romannumerals;
+package fr.arolla.romannumerals.domain;
+
 
 class DummyRomanNumerals implements RomanNumerals {
 
     @Override
-    public String toRoman(int numericValue) {
-        return Strings.repeat("I", numericValue)
+    public String toRoman(PositiveInteger numericValue) {
+        return RomanStep.I.repeatSymbol(numericValue)
                 .replaceAll("I{1000}", "M")
                 .replaceAll("I{900}", "CM")
                 .replaceAll("I{500}", "D")

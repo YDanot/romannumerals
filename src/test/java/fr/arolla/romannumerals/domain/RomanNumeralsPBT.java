@@ -1,11 +1,10 @@
-package fr.arolla.romannumerals;
+package fr.arolla.romannumerals.domain;
 
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.generator.InRange;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assume;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -13,16 +12,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(JUnitQuickcheck.class)
 public class RomanNumeralsPBT {
 
-    private RomanNumerals romanNumerals = new DummyRomanNumerals();
+    private RomanNumerals romanNumerals = RomanNumeralsFactory.getInstance();
 
     @Property
     public void should_only_contains_IVXLDCM(@InRange(minInt = 1, maxInt = 1000000) int numericValue) {
-        assertThat(romanNumerals.toRoman(numericValue)).matches("[IVXLDCM]+");
+        assertThat(romanNumerals.toRoman(PositiveInteger.from(numericValue))).matches("[IVXLDCM]+");
     }
 
     @Property
     public void should_never_contains_more_than_4_times_a_letter_except_M(@InRange(minInt = 1, maxInt = 10000) int numericValue) {
-        String roman = romanNumerals.toRoman(numericValue);
+        String roman = romanNumerals.toRoman(PositiveInteger.from(numericValue));
         assertThat(occurenceOfLetter(roman,'I')).isLessThanOrEqualTo(4);
         assertThat(occurenceOfLetter(roman,'V')).isLessThanOrEqualTo(4);
         assertThat(occurenceOfLetter(roman,'X')).isLessThanOrEqualTo(4);
@@ -33,7 +32,7 @@ public class RomanNumeralsPBT {
 
     @Property
     public void M_should_always_be_first_letter_when_number_greather_than_1000(@InRange(minInt = 1000, maxInt = 10000) int numericValue) {
-        String roman = romanNumerals.toRoman(numericValue);
+        String roman = romanNumerals.toRoman(PositiveInteger.from(numericValue));
         Assume.assumeThat(roman, CoreMatchers.containsString("I"));
         Assume.assumeThat(roman, CoreMatchers.containsString("V"));
         Assume.assumeThat(roman, CoreMatchers.containsString("X"));
