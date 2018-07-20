@@ -8,6 +8,7 @@ import org.junit.Assume;
 import org.junit.runner.RunWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assume.assumeThat;
 
 @RunWith(JUnitQuickcheck.class)
 public class RomanNumeralsPBT {
@@ -33,12 +34,12 @@ public class RomanNumeralsPBT {
     @Property
     public void M_should_always_be_first_letter_when_number_greather_than_1000(@InRange(minInt = 1000, maxInt = 10000) int numericValue) {
         String roman = romanNumerals.toRoman(PositiveInteger.from(numericValue));
-        Assume.assumeThat(roman, CoreMatchers.containsString("I"));
-        Assume.assumeThat(roman, CoreMatchers.containsString("V"));
-        Assume.assumeThat(roman, CoreMatchers.containsString("X"));
-        Assume.assumeThat(roman, CoreMatchers.containsString("C"));
-        Assume.assumeThat(roman, CoreMatchers.containsString("D"));
-        Assume.assumeThat(roman, CoreMatchers.containsString("L"));
+        assumeThat(roman, CoreMatchers.containsString("I"));
+        assumeThat(roman, CoreMatchers.containsString("V"));
+        assumeThat(roman, CoreMatchers.containsString("X"));
+        assumeThat(roman, CoreMatchers.containsString("C"));
+        assumeThat(roman, CoreMatchers.containsString("D"));
+        assumeThat(roman, CoreMatchers.containsString("L"));
         assertThat(roman.indexOf('I')).isGreaterThan(roman.lastIndexOf('M'));
         assertThat(roman.indexOf('V')).isGreaterThan(roman.lastIndexOf('M'));
         assertThat(roman.indexOf('X')).isGreaterThan(roman.lastIndexOf('M'));
