@@ -1,4 +1,4 @@
-package fr.arolla.romannumerals.domain;
+package fr.shodo.romannumerals.domain;
 
 
 class DummyRomanNumerals implements RomanNumerals {

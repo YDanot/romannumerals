@@ -1,4 +1,4 @@
-package fr.arolla.romannumerals.domain;
+package fr.shodo.romannumerals.domain;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -6,7 +6,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static fr.arolla.romannumerals.domain.RomanStep.*;
+import static fr.shodo.romannumerals.domain.RomanStep.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 

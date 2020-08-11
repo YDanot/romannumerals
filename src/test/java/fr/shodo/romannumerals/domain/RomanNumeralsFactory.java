@@ -1,8 +1,5 @@
-package fr.arolla.romannumerals.domain;
+package fr.shodo.romannumerals.domain;
 
-
-import fr.arolla.romannumerals.domain.RecursiveRomanNumerals;
-import fr.arolla.romannumerals.domain.RomanNumerals;
 
 class RomanNumeralsFactory {
 
