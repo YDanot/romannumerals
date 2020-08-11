@@ -23,21 +23,18 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.5.2</version>
         </dependency>
-        <dependency>
-            <groupId>pl.pragmatists</groupId>
-            <artifactId>JUnitParams</artifactId>
-            <version>1.0.2</version>
-            <scope>test</scope>
-        </dependency>
+
+        <!--PBT-->
         <dependency>
             <groupId>com.pholser</groupId>
             <artifactId>junit-quickcheck-core</artifactId>
@@ -48,10 +45,6 @@
             <artifactId>junit-quickcheck-generators</artifactId>
             <version>0.6.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>15.0</version>
-        </dependency>
+
     </dependencies>
 </project>

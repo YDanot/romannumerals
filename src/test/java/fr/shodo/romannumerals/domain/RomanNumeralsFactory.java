@@ -1,11 +1,12 @@
 package fr.shodo.romannumerals.domain;
 
 
+import java.util.Arrays;
+import java.util.List;
+
 class RomanNumeralsFactory {
 
-    static RomanNumerals getInstance(){
-        return new RecursiveRomanNumerals();
-//        return new IterativeRomanNumerals();
-//        return new DummyRomanNumerals();
+    static List<RomanNumerals> instances(){
+        return Arrays.asList(new RecursiveRomanNumerals(), new IterativeRomanNumerals(), new DummyRomanNumerals());
     }
 }

@@ -1,6 +1,8 @@
 package fr.shodo.romannumerals.domain;
 
 
+import fr.shodo.romannumerals.utils.PositiveInteger;
+
 class DummyRomanNumerals implements RomanNumerals {
 
     @Override

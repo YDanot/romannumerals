@@ -1,5 +1,8 @@
 package fr.shodo.romannumerals.domain;
 
+import fr.shodo.romannumerals.utils.EuclideanDivision;
+import fr.shodo.romannumerals.utils.PositiveInteger;
+
 class RecursiveRomanNumerals implements RomanNumerals {
 
     public String toRoman(PositiveInteger numericValue) {
@@ -10,9 +13,9 @@ class RecursiveRomanNumerals implements RomanNumerals {
         if (RomanStep.I.equals(romanStep)){
             return romanStep.repeatSymbol(numericValue);
         }
-
-        return romanStep.repeatSymbol(numericValue.euclideanDivide(romanStep.number))
-                + toRoman(numericValue.mod(romanStep.number), romanStep.lower());
+        final EuclideanDivision div = numericValue.div(romanStep.algebraic());
+        return romanStep.repeatSymbol(div.quotient())
+                + toRoman(div.remainder(), romanStep.lower());
     }
 
 }

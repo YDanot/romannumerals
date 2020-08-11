@@ -1,14 +1,20 @@
 package fr.shodo.romannumerals.domain;
 
+import fr.shodo.romannumerals.utils.EuclideanDivision;
+import fr.shodo.romannumerals.utils.PositiveInteger;
+
 class IterativeRomanNumerals implements RomanNumerals {
 
     public String toRoman(PositiveInteger numericValue) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
+
         for (RomanStep romanStep : RomanStep.values()) {
-            result += romanStep.repeatSymbol(numericValue.euclideanDivide(romanStep.number));
-            numericValue = numericValue.mod(romanStep.number);
+            final EuclideanDivision div = numericValue.div(romanStep.algebraic());
+            result.append(romanStep.repeatSymbol(div.quotient()));
+            numericValue = div.remainder();
         }
-        return result;
+
+        return result.toString();
     }
 
 }
